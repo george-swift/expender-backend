@@ -1,0 +1,134 @@
+{
+  "Comment": "User Data Deletion Workflow",
+  "StartAt": "InitializeDeletion",
+  "States": {
+    "InitializeDeletion": {
+      "Type": "Task",
+      "Resource": "${InitializeDeletionLambdaArn}",
+      "Next": "DeleteSmartScansLoop",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "LogFailure",
+          "ResultPath": "$.error"
+        }
+      ],
+      "ResultPath": "$.initialization"
+    },
+    "DeleteSmartScansLoop": {
+      "Type": "Task",
+      "Resource": "${DeleteSmartScansLambdaArn}",
+      "Next": "CheckMoreSmartScans",
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "ThrottlingException",
+            "ProvisionedThroughputExceededException"
+          ],
+          "IntervalSeconds": 5,
+          "MaxAttempts": 5,
+          "BackoffRate": 2
+        },
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 3,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "LogFailure",
+          "ResultPath": "$.error"
+        }
+      ],
+      "ResultPath": "$.smartScansDeletion"
+    },
+    "CheckMoreSmartScans": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.smartScansDeletion.hasMore",
+          "BooleanEquals": true,
+          "Next": "DeleteSmartScansLoop"
+        }
+      ],
+      "Default": "MarkExpensesForDeletion"
+    },
+    "MarkExpensesForDeletion": {
+      "Type": "Task",
+      "Resource": "${MarkExpensesLambdaArn}",
+      "Next": "CheckMoreExpenses",
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "ThrottlingException",
+            "ProvisionedThroughputExceededException"
+          ],
+          "IntervalSeconds": 5,
+          "MaxAttempts": 5,
+          "BackoffRate": 2
+        },
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 3,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "LogFailure",
+          "ResultPath": "$.error"
+        }
+      ],
+      "ResultPath": "$.expensesDeletion"
+    },
+    "CheckMoreExpenses": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.expensesDeletion.hasMore",
+          "BooleanEquals": true,
+          "Next": "MarkExpensesForDeletion"
+        }
+      ],
+      "Default": "CompleteDeletion"
+    },
+    "CompleteDeletion": {
+      "Type": "Task",
+      "Resource": "${CompleteDeletionLambdaArn}",
+      "End": true,
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "LogFailure",
+          "ResultPath": "$.error"
+        }
+      ]
+    },
+    "LogFailure": {
+      "Type": "Pass",
+      "Result": "User data deletion failed",
+      "End": true
+    }
+  }
+}
