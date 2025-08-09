@@ -1,0 +1,10 @@
+aws_lambda_powertools
+aws-xray-sdk
+boto3
+clerk-backend-api
+chalice
+openai
+pydantic
+pydantic-settings
+svix
+requests
