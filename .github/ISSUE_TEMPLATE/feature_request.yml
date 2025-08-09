@@ -1,152 +1,182 @@
----
-name: ✨ Feature Request
-about: Suggest a new feature or enhancement for the Expender platform
+name: 🚀 Feature Request
+description: Suggest a new feature or enhancement for Expender
 title: "[FEATURE] "
 labels: ["enhancement", "needs-triage"]
 assignees: []
----
 
-## ✨ Feature Summary
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🚀 Feature Request
+        Thank you for suggesting a new feature! Please provide detailed information to help us understand your request.
 
-A clear and concise description of the feature you'd like to see implemented.
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: A clear and concise description of the feature you'd like to see
+      placeholder: I would like to see...
+    validations:
+      required: true
 
-## 🎯 Problem Statement
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? Describe the use case and why this would be valuable.
+      placeholder: |
+        - What problem are you trying to solve?
+        - Who would benefit from this feature?
+        - What's the current limitation or gap?
+    validations:
+      required: true
 
-What problem does this feature solve? Describe the use case and why this feature would be valuable.
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe how you envision this feature working
+      placeholder: |
+        The feature could work by...
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+        Example user flow:
+        1. User does X
+        2. System responds with Y
+        3. User can then Z
 
-## 💡 Proposed Solution
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative solutions or features you've considered
+      placeholder: |
+        - Alternative approach 1
+        - Alternative approach 2
+        - Why the proposed solution is preferred
 
-Describe the solution you'd like to see implemented.
+  - type: dropdown
+    id: feature-area
+    attributes:
+      label: Feature Category
+      description: Which part of the application does this feature relate to?
+      options:
+        - 💰 Expense Management (CRUD operations)
+        - 🤖 SmartScan AI (Receipt processing)
+        - 📈 Data Export & Reporting
+        - 👥 User Management & Quotas
+        - 🔒 Authentication & Security
+        - 🏗️ Infrastructure & Performance
+        - 📱 API & Integration
+        - 📊 Analytics & Monitoring
+        - Other
+    validations:
+      required: true
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+  - type: checkboxes
+    id: feature-type
+    attributes:
+      label: Feature Type
+      description: What type of feature is this?
+      options:
+        - label: "🎯 New functionality"
+        - label: "🔧 Enhancement to existing feature"
+        - label: "🚀 Performance improvement"
+        - label: "🛡️ Security enhancement"
+        - label: "🎨 User experience improvement"
+        - label: "🔌 Integration/API enhancement"
 
-## 🔄 User Flow
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to you?
+      options:
+        - 🔥 Critical (blocking users)
+        - ⭐ High (significant user value)
+        - 📈 Medium (nice to have)
+        - 💡 Low (future enhancement)
+    validations:
+      required: true
 
-Describe how users would interact with this feature:
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex do you think this feature might be to implement?
+      options:
+        - 🟢 Low (< 1 week)
+        - 🟡 Medium (1-3 weeks)
+        - 🟠 High (3-6 weeks)
+        - 🔴 Very High (> 6 weeks)
+        - ❓ Unsure
 
-1. User navigates to...
-2. User performs action...
-3. System responds with...
-4. User sees...
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define what "done" looks like for this feature
+      placeholder: |
+        - [ ] User can accomplish X
+        - [ ] System responds with Y
+        - [ ] API returns Z
+        - [ ] Documentation is updated
+        - [ ] Tests are implemented
 
-## 📊 Feature Category
+  - type: checkboxes
+    id: business-value
+    attributes:
+      label: Expected Benefits
+      description: What benefits would this feature provide?
+      options:
+        - label: "📈 Improved user experience"
+        - label: "🚀 Increased user engagement"
+        - label: "💰 Cost reduction"
+        - label: "⚡ Performance improvement"
+        - label: "🎯 Competitive advantage"
+        - label: "👨‍💻 Developer productivity"
 
-**Primary Area:**
-- [ ] 💰 Expense Management (CRUD operations)
-- [ ] 🤖 SmartScan AI (Receipt processing)
-- [ ] 📈 Data Export & Reporting
-- [ ] 👥 User Management & Quotas
-- [ ] 🔒 Authentication & Security
-- [ ] 🏗️ Infrastructure & Performance
-- [ ] 📱 API & Integration
-- [ ] 📊 Analytics & Monitoring
+  - type: textarea
+    id: success-metrics
+    attributes:
+      label: Success Metrics
+      description: How would you measure the success of this feature?
+      placeholder: |
+        - User adoption rate: target %
+        - Performance improvement: target metrics
+        - User satisfaction: measurement method
 
-**Feature Type:**
-- [ ] New API endpoint
-- [ ] Enhancement to existing functionality
-- [ ] Performance optimization
-- [ ] Security enhancement
-- [ ] Developer experience improvement
+  - type: checkboxes
+    id: technical-impact
+    attributes:
+      label: Technical Considerations
+      description: What areas might be affected by implementing this feature?
+      options:
+        - label: "🗄️ Database schema changes"
+        - label: "🔌 New API endpoints"
+        - label: "🏗️ Infrastructure updates"
+        - label: "🔒 Security considerations"
+        - label: "📊 Monitoring changes"
+        - label: "📝 Documentation updates"
+        - label: "💰 Cost implications"
 
-## 🔧 Technical Considerations
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that might be helpful
+      placeholder: |
+        - Timeline considerations
+        - Dependencies on other features
+        - Similar features in other tools
+        - User feedback or research
+        - Related issues or discussions
 
-**Infrastructure Impact:**
-- [ ] New AWS services required
-- [ ] Database schema changes needed
-- [ ] API Gateway modifications
-- [ ] Lambda function changes
-- [ ] Frontend changes required
-- [ ] No infrastructure changes
-
-**Complexity Estimate:**
-- [ ] 🟢 Low (< 1 week)
-- [ ] 🟡 Medium (1-3 weeks)
-- [ ] 🟠 High (3-6 weeks)
-- [ ] 🔴 Very High (> 6 weeks)
-- [ ] ❓ Unsure
-
-## 📋 Acceptance Criteria
-
-Define what "done" looks like for this feature:
-
-- [ ] Criterion 1: User can...
-- [ ] Criterion 2: System will...
-- [ ] Criterion 3: API responds with...
-- [ ] Criterion 4: Documentation updated
-- [ ] Criterion 5: Tests implemented
-
-## 🚀 Business Value
-
-**Priority Level:**
-- [ ] 🔥 Critical (blocking users)
-- [ ] ⭐ High (significant user value)
-- [ ] 📈 Medium (nice to have)
-- [ ] 💡 Low (future enhancement)
-
-**Expected Benefits:**
-- [ ] Improved user experience
-- [ ] Increased user engagement
-- [ ] Cost reduction
-- [ ] Performance improvement
-- [ ] Competitive advantage
-- [ ] Developer productivity
-
-**Success Metrics:**
-How will we measure the success of this feature?
-- User adoption rate: [target %]
-- Performance improvement: [target metrics]
-- User satisfaction: [measurement method]
-
-## 🔗 Related Items
-
-**Similar Features:**
-Are there similar features in the platform or other tools that can serve as reference?
-
-**Dependencies:**
-- [ ] Requires feature X to be implemented first
-- [ ] Blocks feature Y implementation
-- [ ] No dependencies
-
-**External Integrations:**
-- [ ] OpenAI API changes
-- [ ] AWS service integration
-- [ ] Clerk authentication updates
-- [ ] Third-party service integration
-- [ ] No external dependencies
-
-## 🔄 Alternative Solutions
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Workarounds:**
-Are there any current workarounds for this need?
-
-## 📚 Additional Context
-
-Add any other context, research, or examples about the feature request here:
-
-- **Research**: Links to relevant articles, documentation, or examples
-- **User Feedback**: Quotes or summaries from user requests
-- **Market Analysis**: How competitors handle this use case
-- **Timeline**: Any specific deadlines or timing considerations
-
-## 🎯 Definition of Done
-
-- [ ] Feature specification reviewed and approved
-- [ ] Technical design document created
-- [ ] Implementation completed
-- [ ] Unit tests written and passing
-- [ ] Integration tests updated
-- [ ] API documentation updated
-- [ ] User documentation updated
-- [ ] Security review completed (if applicable)
-- [ ] Performance testing completed
-- [ ] Feature deployed to staging
-- [ ] User acceptance testing passed
-- [ ] Feature deployed to production
-- [ ] Success metrics being tracked
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this feature request, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

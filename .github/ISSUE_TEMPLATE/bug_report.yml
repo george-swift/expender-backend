@@ -1,104 +1,176 @@
----
 name: 🐛 Bug Report
-about: Report a bug or unexpected behavior in the Expender platform
+description: Report a bug or unexpected behavior in the Expender platform
 title: "[BUG] "
 labels: ["bug", "needs-triage"]
 assignees: []
----
 
-## 🐛 Bug Description
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐛 Bug Report
+        Thank you for taking the time to report a bug! Please provide as much detail as possible to help us reproduce and fix the issue.
 
-A clear and concise description of what the bug is.
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe what happened and what you expected to happen instead
+    validations:
+      required: true
 
-## 🔄 Steps to Reproduce
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Call API endpoint '...'
+        3. Upload file '...'
+        4. See error
+    validations:
+      required: true
 
-1. Go to '...'
-2. Call API endpoint '...'
-3. Upload file '...'
-4. See error
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: A clear description of what you expected to happen
+      placeholder: What should have happened instead?
+    validations:
+      required: true
 
-## ✅ Expected Behavior
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: A clear description of what actually happened
+      placeholder: What actually happened? Include any error messages.
+    validations:
+      required: true
 
-A clear and concise description of what you expected to happen.
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Deployment Environment
+      description: Which environment is affected?
+      options:
+        - Development
+        - Staging
+        - Production
+        - Multiple environments
+    validations:
+      required: true
 
-## ❌ Actual Behavior
+  - type: checkboxes
+    id: affected-endpoints
+    attributes:
+      label: API Endpoint(s) Affected
+      description: Which endpoints are experiencing issues?
+      options:
+        - label: "/expenses (CRUD operations)"
+        - label: "/expenses/batch (Bulk operations)"
+        - label: "/expenses/export (CSV export)"
+        - label: "/smartscans (Receipt processing)"
+        - label: "/quotas (User limits)"
+        - label: "/webhooks (External integrations)"
+        - label: "GraphQL subscriptions"
+        - label: "File upload/download"
 
-A clear and concise description of what actually happened.
+  - type: textarea
+    id: client-info
+    attributes:
+      label: Client Information
+      description: Information about your client setup
+      placeholder: |
+        - Browser/Tool: [e.g. Chrome 91, Postman 9.0, curl]
+        - Platform: [e.g. macOS, Windows, Linux]
+        - Authentication: [e.g. Clerk JWT token]
+      render: markdown
 
-## 📋 Environment Information
+  - type: textarea
+    id: error-details
+    attributes:
+      label: Error Messages & Logs
+      description: Include any error messages, logs, or stack traces
+      placeholder: Paste any relevant error messages, HTTP responses, or log entries here
+      render: markdown
 
-**Deployment Environment:**
-- [ ] Development
-- [ ] Staging
-- [ ] Production
+  - type: textarea
+    id: request-details
+    attributes:
+      label: Request Details (if applicable)
+      description: Details about the API request that caused the issue
+      placeholder: |
+        ```json
+        {
+          "method": "POST",
+          "url": "/api/endpoint",
+          "headers": {
+            "Authorization": "[REDACTED]"
+          },
+          "body": {
+            "data": "example"
+          }
+        }
+        ```
+      render: markdown
 
-**API Endpoint(s) Affected:**
-- [ ] `/expenses` (CRUD operations)
-- [ ] `/expenses/batch` (Bulk operations)
-- [ ] `/expenses/export` (CSV export)
-- [ ] `/smartscans` (Receipt processing)
-- [ ] `/quotas` (User limits)
-- [ ] `/webhooks` (External integrations)
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Frequency
+      description: How often does this issue occur?
+      options:
+        - Always (100%)
+        - Often (75-99%)
+        - Sometimes (25-74%)
+        - Rarely (1-24%)
+        - Only once
+    validations:
+      required: true
 
-**Client Information:**
-- Browser/Tool: [e.g. Chrome 91, Postman 9.0, curl]
-- Platform: [e.g. macOS, Windows, Linux]
-- Authentication: [e.g. Clerk JWT token]
+  - type: checkboxes
+    id: impact-type
+    attributes:
+      label: Impact Type
+      description: What kind of impact does this bug have?
+      options:
+        - label: "🔴 Service completely unavailable"
+        - label: "🟠 Major functionality broken"
+        - label: "🟡 Minor functionality affected"
+        - label: "🟢 Cosmetic/UI issue"
+        - label: "📊 Performance degradation"
+        - label: "🔒 Security concern"
 
-## 📸 Screenshots/Logs
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround
+      description: Is there a temporary workaround for this issue?
+      placeholder: Describe any workaround you've found, or write "None" if no workaround exists
 
-If applicable, add screenshots, error logs, or CloudWatch logs to help explain your problem.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context about the problem
+      placeholder: |
+        - When did this start happening?
+        - Are other users affected?
+        - Any recent changes or deployments?
+        - Related issues or patterns you've noticed?
 
-```
-[Paste any relevant logs, error messages, or stack traces here]
-```
-
-## 🔍 Additional Context
-
-Add any other context about the problem here:
-
-- **Frequency**: Does this happen every time or intermittently?
-- **Impact**: How many users are affected?
-- **Workaround**: Is there a temporary workaround?
-- **Related Issues**: Any related issues or PRs?
-
-## 🏥 Error Details
-
-**HTTP Status Code:** [e.g. 500, 400, 401]
-
-**Error Response:**
-```json
-{
-  "error": "paste error response here"
-}
-```
-
-**Request Details:**
-```json
-{
-  "method": "POST",
-  "url": "/api/endpoint",
-  "headers": {
-    "Authorization": "[REDACTED]"
-  },
-  "body": {
-    "data": "example"
-  }
-}
-```
-
-## 📊 Performance Impact
-
-- [ ] API response time degraded
-- [ ] SmartScan processing slow
-- [ ] Database queries timing out
-- [ ] Lambda cold starts increased
-- [ ] Not performance related
-
-## 🔐 Security Considerations
-
-- [ ] This bug may have security implications
-- [ ] User data potentially exposed
-- [ ] Authentication/authorization affected
-- [ ] No security concerns
-- [ ] Unsure about security impact
+  - type: checkboxes
+    id: security-impact
+    attributes:
+      label: Security Considerations
+      description: Does this bug have any security implications?
+      options:
+        - label: This bug may have security implications
+        - label: User data potentially exposed
+        - label: Authentication/authorization affected
+        - label: No security concerns
+        - label: Unsure about security impact
