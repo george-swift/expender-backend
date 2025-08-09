@@ -1,0 +1,481 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Expender API",
+    "description": "Serverless expense management platform with AI-powered receipt scanning (SmartScan), intelligent categorization, and multi-tier user quotas. Built on AWS with Lambda, DynamoDB, Textract, and OpenAI integration."
+  },
+  "host": "{{api_gateway_host}}",
+  "basePath": "/dev",
+  "schemes": ["https"],
+  "tags": [
+    {
+      "name": "Expenses",
+      "description": "Core expense management operations - create, read, update, delete expense records"
+    },
+    {
+      "name": "Batch Operations",
+      "description": "Bulk operations for processing multiple expenses efficiently"
+    },
+    {
+      "name": "Export",
+      "description": "Data export functionality for generating CSV files and reports"
+    },
+    {
+      "name": "SmartScan",
+      "description": "AI-powered receipt scanning with AWS Textract and OpenAI categorization"
+    },
+    {
+      "name": "AI Processing",
+      "description": "Machine learning and artificial intelligence features"
+    },
+    {
+      "name": "Quotas",
+      "description": "User plan management and usage tracking for free/pro tiers"
+    },
+    {
+      "name": "User Management",
+      "description": "User account and profile management operations"
+    },
+    {
+      "name": "Webhooks",
+      "description": "External service integration endpoints for real-time notifications"
+    },
+    {
+      "name": "CORS",
+      "description": "Cross-Origin Resource Sharing preflight requests"
+    }
+  ],
+  "paths": {
+    "/expenses": {
+      "get": {
+        "summary": "List User Expenses",
+        "description": "Retrieve all expenses for the authenticated user. Supports filtering by date ranges, categories, and other criteria using query parameters. Results are returned in reverse chronological order.",
+        "tags": ["Expenses"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create New Expense",
+        "description": "Create a single expense record. Requires amount, merchant, and category. Supports 18+ currencies and 27 predefined expense categories. Auto-generates expense ID and timestamps.",
+        "tags": ["Expenses"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "options": {
+        "summary": "CORS Preflight - List/Create Expenses",
+        "description": "Handle CORS preflight request for expenses endpoint (GET/POST operations)",
+        "tags": ["CORS"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/expenses/batch": {
+      "post": {
+        "summary": "Create Multiple Expenses",
+        "description": "Bulk create multiple expense records in a single API call. Efficient for importing data from CSV files or other bulk operations. Validates all expenses before processing.",
+        "tags": ["Expenses", "Batch Operations"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete Multiple Expenses",
+        "description": "Bulk delete multiple expense records by providing an array of expense IDs. Useful for cleaning up test data or removing multiple unwanted expenses efficiently.",
+        "tags": ["Expenses", "Batch Operations"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "options": {
+        "summary": "CORS Preflight - Batch Operations",
+        "description": "Handle CORS preflight request for batch expenses endpoint (POST/DELETE operations)",
+        "tags": ["CORS"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/expenses/export": {
+      "post": {
+        "summary": "Export Expenses to CSV",
+        "description": "Generate and download expense data in CSV format. Customize which fields to include and apply date range filters. Returns a presigned S3 URL for downloading the generated file.",
+        "tags": ["Expenses", "Export"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "options": {
+        "summary": "CORS Preflight - Export Operations",
+        "description": "Handle CORS preflight request for expense export endpoint",
+        "tags": ["CORS"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/expenses/{expense_id}": {
+      "put": {
+        "summary": "Update Expense",
+        "description": "Update an existing expense record by ID. Supports partial updates - only include fields you want to modify. Validates data before applying changes.",
+        "tags": ["Expenses"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "expense_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Unique identifier of the expense to update"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete Expense",
+        "description": "Permanently delete a single expense record by ID. This action cannot be undone. Returns success confirmation upon deletion.",
+        "tags": ["Expenses"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "expense_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Unique identifier of the expense to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "options": {
+        "summary": "CORS Preflight - Individual Expense Operations",
+        "description": "Handle CORS preflight request for individual expense endpoint (PUT/DELETE operations)",
+        "tags": ["CORS"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "expense_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Unique identifier of the expense"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotas": {
+      "get": {
+        "summary": "Get User Quota Information",
+        "description": "Retrieve current user's plan details including SmartScan usage limits, remaining quota, and plan type (Free: 30 scans/month, Pro: unlimited). Essential for UI quota displays.",
+        "tags": ["Quotas", "User Management"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "options": {
+        "summary": "CORS Preflight - Quota Operations",
+        "description": "Handle CORS preflight request for user quota endpoint",
+        "tags": ["CORS"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/smartscans": {
+      "post": {
+        "summary": "Initiate SmartScan Receipt Processing",
+        "description": "Start AI-powered receipt scanning process. Returns presigned S3 upload URL for receipt image/PDF. AWS Textract extracts data, OpenAI categorizes expenses. Results delivered via GraphQL subscription.",
+        "tags": ["SmartScan", "AI Processing"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_gateway_authorizer": []
+          }
+        ]
+      },
+      "options": {
+        "summary": "CORS Preflight - SmartScan Operations",
+        "description": "Handle CORS preflight request for SmartScan receipt processing endpoint",
+        "tags": ["CORS"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks": {
+      "post": {
+        "summary": "Handle External Webhooks",
+        "description": "Secure endpoint for processing external service webhooks, primarily Clerk user lifecycle events (user.created, user.updated, user.deleted). Manages user data and quota initialization.",
+        "tags": ["Webhooks", "User Management"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      },
+      "options": {
+        "summary": "CORS Preflight - Webhook Operations",
+        "description": "Handle CORS preflight request for external webhook endpoint",
+        "tags": ["CORS"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_gateway_authorizer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Clerk JWT Token - Include as '{jwt_token}' in the Authorization header. Obtain from Clerk authentication.",
+      "x-amazon-apigateway-authtype": "custom"
+    }
+  },
+  "definitions": {
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    }
+  }
+}

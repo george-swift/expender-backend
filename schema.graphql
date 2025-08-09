@@ -1,0 +1,50 @@
+input ScanResultInput {
+  merchant: String!
+  date: String!
+  category: String!
+  currency: String!
+  amount: Float!
+  createdAt: String!
+  confidence: Float
+}
+
+type ScanResult {
+  merchant: String!
+  date: String!
+  category: String!
+  currency: String!
+  amount: Float!
+  createdAt: String!
+  confidence: Float
+}
+
+type SmartScanResult {
+  userId: String
+  scanId: String
+  objectKey: String
+  result: ScanResult
+}
+
+type Query {
+  getSmartScanResult(userId: String!, scanId: String!): SmartScanResult
+}
+
+type Mutation {
+  publishSmartScanResult(
+    userId: String!
+    scanId: String!
+    objectKey: String!
+    result: ScanResultInput!
+  ): SmartScanResult
+}
+
+type Subscription {
+  onSmartScanResultAvailable(userId: String!): SmartScanResult
+    @aws_subscribe(mutations: ["publishSmartScanResult"])
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
