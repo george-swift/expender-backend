@@ -1,0 +1,38 @@
+{
+  "version": "2.0",
+  "app_name": "expender",
+  "manage_iam_role": false,
+  "iam_role_arn": "${aws_iam_role.api_service_role.arn}",
+  "automatic_layer": true,
+  "xray": true,
+  "environment_variables": {
+    "ASSETS_BUCKET_NAME": "${aws_s3_bucket.assets.bucket}",
+    "APPSYNC_GRAPHQL_ENDPOINT": "${aws_appsync_graphql_api.smartscan_api.uris[\"GRAPHQL\"]}",
+    "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
+    "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
+    "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
+    "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
+    "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
+    "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
+    "FRONTEND_APP_URL": "${var.frontend_app_url}",
+    "FRONTEND_DEV_APP_URL": "${var.frontend_dev_app_url}",
+    "OPENAI_API_KEY": "${var.openai_api_key}",
+    "POWERTOOLS_SERVICE_NAME": "expender",
+    "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
+    "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
+    "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
+    "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+  },
+  "lambda_functions": {
+    "bucket_event_handler": {
+      "manage_iam_role": false,
+      "iam_role_arn": "${aws_iam_role.bucket_event_handler_role.arn}"
+    }
+  },
+  "stages": {
+    "dev": {},
+    "prod": {
+      "lambda_timeout": 30
+    }
+  }
+}
