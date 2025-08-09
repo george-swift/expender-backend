@@ -1,0 +1,270 @@
+---
+name: ⚡ Performance Issue
+about: Report performance problems, optimization requests, or scaling concerns
+title: "[PERFORMANCE] "
+labels: ["performance", "needs-triage"]
+assignees: []
+---
+
+## ⚡ Performance Issue Summary
+
+A clear and concise description of the performance issue or optimization opportunity.
+
+## 📊 Performance Category
+
+**Performance Domain:**
+- [ ] 🚀 API Response Time
+- [ ] 🤖 SmartScan Processing Speed
+- [ ] 🗄️ Database Query Performance
+- [ ] 📦 Lambda Cold Starts
+- [ ] 🌐 CDN/Static Asset Delivery
+- [ ] 📈 Throughput/Concurrency
+- [ ] 💾 Memory Usage
+- [ ] 🔄 Event Processing Latency
+- [ ] 📊 Data Export Performance
+- [ ] 🎯 User Experience Responsiveness
+
+**Issue Type:**
+- [ ] 🐌 Slow response times
+- [ ] 📈 Poor scalability
+- [ ] 💰 High resource costs
+- [ ] 🔄 Inefficient algorithms
+- [ ] 🗄️ Database bottlenecks
+- [ ] 📦 Large payload sizes
+- [ ] ⏱️ Timeout issues
+- [ ] 🎯 User experience degradation
+
+## 🎯 Affected Components
+
+**Services/Endpoints:**
+- [ ] `/expenses` (CRUD operations)
+- [ ] `/expenses/batch` (Bulk operations)
+- [ ] `/expenses/export` (CSV generation)
+- [ ] `/smartscans` (Receipt processing)
+- [ ] `/quotas` (User limits)
+- [ ] `/webhooks` (External integrations)
+- [ ] GraphQL subscriptions
+- [ ] File upload/download
+
+**AWS Services:**
+- [ ] Lambda functions
+- [ ] API Gateway
+- [ ] DynamoDB
+- [ ] S3
+- [ ] CloudFront
+- [ ] Textract
+- [ ] EventBridge
+- [ ] Step Functions
+
+## 📈 Performance Metrics
+
+**Current Performance:**
+- Response time: [ms] (target: [ms])
+- Throughput: [requests/sec] (target: [requests/sec])
+- Error rate: [%] (target: [%])
+- Memory usage: [MB] (limit: [MB])
+- CPU utilization: [%] (limit: [%])
+- Cold start frequency: [%]
+
+**Performance Degradation:**
+- When did performance degrade? [timestamp/date]
+- Performance before: [metrics]
+- Performance now: [metrics]
+- Percentage degradation: [%]
+
+## 🔍 Symptoms & User Impact
+
+**Observable Symptoms:**
+- [ ] Slow page loads
+- [ ] API timeouts
+- [ ] High latency responses
+- [ ] Failed requests
+- [ ] Memory errors
+- [ ] CPU throttling
+- [ ] Cold start delays
+- [ ] Processing bottlenecks
+
+**User Experience Impact:**
+- [ ] 🔴 Critical - Service unusable
+- [ ] 🟠 High - Significant user frustration
+- [ ] 🟡 Medium - Noticeable delays
+- [ ] 🟢 Low - Minor inconvenience
+- [ ] 📊 Metrics only - No user impact
+
+**Business Impact:**
+- Affected users: [number/percentage]
+- Revenue impact: [estimate if applicable]
+- User satisfaction: [survey scores, complaints]
+- Competitive disadvantage: [Yes/No]
+
+## 📊 Performance Data
+
+**CloudWatch Metrics:**
+```
+Function Duration: [p50, p90, p99]
+Invocation Count: [per hour/day]
+Error Count: [number]
+Throttle Count: [number]
+Memory Utilization: [average %]
+```
+
+**Database Performance:**
+```
+Read/Write Capacity: [consumed vs provisioned]
+Query Latency: [average ms]
+Scan Operations: [count and impact]
+Hot Partitions: [identified keys]
+Index Usage: [GSI efficiency]
+```
+
+**API Gateway Metrics:**
+```
+Integration Latency: [ms]
+Overall Latency: [ms]
+4xx Errors: [count]
+5xx Errors: [count]
+Cache Hit Ratio: [%]
+```
+
+## 🔬 Root Cause Analysis
+
+**Investigation Steps Taken:**
+- [ ] Reviewed CloudWatch logs
+- [ ] Analyzed performance metrics
+- [ ] Profiled Lambda functions
+- [ ] Examined database queries
+- [ ] Checked network latency
+- [ ] Analyzed payload sizes
+- [ ] Reviewed algorithm complexity
+
+**Suspected Causes:**
+- [ ] Inefficient algorithms
+- [ ] Large data processing
+- [ ] Cold start overhead
+- [ ] Database hot partitions
+- [ ] Network bottlenecks
+- [ ] Memory leaks
+- [ ] Synchronous processing
+
+**Evidence:**
+```
+[Paste relevant logs, metrics, or profiling data]
+```
+
+## 🎯 Performance Targets
+
+**Target Metrics:**
+- API response time: < [ms]
+- SmartScan processing: < [seconds]
+- Export generation: < [minutes]
+- Database queries: < [ms]
+- Memory usage: < [MB]
+- Cold start ratio: < [%]
+
+**Service Level Objectives (SLOs):**
+- 95% of requests complete in < [ms]
+- 99.9% uptime
+- < 0.1% error rate
+- 99% of SmartScan processing completes in < [seconds]
+
+## 💡 Proposed Solutions
+
+**Immediate Optimizations:**
+1. Solution 1 - [expected improvement]
+2. Solution 2 - [expected improvement]
+3. Solution 3 - [expected improvement]
+
+**Long-term Improvements:**
+1. Architectural change 1
+2. Scaling strategy 2
+3. Technology upgrade 3
+
+**Resource Adjustments:**
+- [ ] Increase Lambda memory/timeout
+- [ ] Scale DynamoDB capacity
+- [ ] Add database indexes
+- [ ] Implement caching
+- [ ] Optimize queries
+- [ ] Reduce payload sizes
+
+## 🧪 Testing Strategy
+
+**Performance Testing:**
+- [ ] Load testing
+- [ ] Stress testing
+- [ ] Spike testing
+- [ ] Volume testing
+- [ ] Endurance testing
+
+**Test Scenarios:**
+1. Normal load: [X requests/sec for Y minutes]
+2. Peak load: [X requests/sec for Y minutes]
+3. Stress test: [X requests/sec until failure]
+4. Data volume: [X records/operations]
+
+**Tools & Approach:**
+- Testing tool: [e.g., Artillery, JMeter, k6]
+- Test environment: [dev/staging]
+- Monitoring during tests: [CloudWatch, X-Ray]
+
+## 📊 Cost Impact Analysis
+
+**Current Costs:**
+- Lambda execution: $[amount/month]
+- DynamoDB: $[amount/month]
+- Data transfer: $[amount/month]
+- Other services: $[amount/month]
+
+**Optimization Potential:**
+- Expected cost reduction: [%] or $[amount]
+- Performance per dollar improvement: [metrics]
+- ROI timeline: [months to break even]
+
+## 🔄 Implementation Plan
+
+**Phase 1 - Quick Wins (1-2 weeks):**
+- [ ] Quick fix 1
+- [ ] Quick fix 2
+- [ ] Quick fix 3
+
+**Phase 2 - Medium-term (3-6 weeks):**
+- [ ] Optimization 1
+- [ ] Optimization 2
+- [ ] Optimization 3
+
+**Phase 3 - Long-term (2-3 months):**
+- [ ] Architectural change 1
+- [ ] Architectural change 2
+- [ ] Architectural change 3
+
+## 📈 Success Metrics
+
+**Performance KPIs:**
+- [ ] Response time improved by [%]
+- [ ] Throughput increased by [%]
+- [ ] Error rate reduced by [%]
+- [ ] Cost reduced by [%]
+- [ ] User satisfaction improved
+- [ ] SLO compliance achieved
+
+**Monitoring Plan:**
+- Dashboards to create/update
+- Alerts to configure
+- Regular performance reviews
+
+## 📚 Additional Context
+
+**Related Performance Issues:**
+- [Links to related issues]
+- [Previous optimization efforts]
+
+**External Dependencies:**
+- Third-party API performance
+- AWS service limits
+- Network constraints
+- Client-side factors
+
+**Performance Budget:**
+- Critical user journeys
+- Performance regression prevention
+- Monitoring thresholds

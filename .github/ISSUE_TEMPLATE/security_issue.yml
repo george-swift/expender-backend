@@ -1,0 +1,221 @@
+---
+name: 🔒 Security Issue
+about: Report security vulnerabilities or concerns (non-critical only)
+title: "[SECURITY] "
+labels: ["security", "needs-triage"]
+assignees: []
+---
+
+## ⚠️ Security Notice
+
+**🚨 CRITICAL SECURITY ISSUES**: Please report critical security vulnerabilities privately via email to security@expender.app instead of using this public template.
+
+This template is for:
+- Non-critical security improvements
+- Security configuration questions
+- Best practice recommendations
+- Security feature requests
+
+## 🔒 Security Issue Summary
+
+A clear and concise description of the security concern or improvement.
+
+## 🎯 Security Category
+
+**Security Domain:**
+- [ ] 🔐 Authentication (Clerk integration)
+- [ ] 🛡️ Authorization (IAM, API permissions)
+- [ ] 🔏 Data Encryption (at rest/in transit)
+- [ ] 🌐 Network Security (VPC, security groups)
+- [ ] 📊 Audit Logging & Monitoring
+- [ ] 🔑 Secrets Management
+- [ ] 📱 API Security (rate limiting, validation)
+- [ ] 🗄️ Data Privacy & Protection
+- [ ] 🔧 Infrastructure Security
+- [ ] 📋 Compliance (GDPR, SOC2, etc.)
+
+**Issue Type:**
+- [ ] 🔧 Security improvement suggestion
+- [ ] 📋 Configuration review request
+- [ ] 🚨 Non-critical vulnerability
+- [ ] 📊 Security monitoring gap
+- [ ] 🔍 Security testing request
+- [ ] 📚 Documentation improvement
+- [ ] 🛠️ Security tooling enhancement
+
+## 📍 Affected Components
+
+**Services/Components:**
+- [ ] API Gateway endpoints
+- [ ] Lambda functions
+- [ ] DynamoDB tables
+- [ ] S3 buckets
+- [ ] CloudFront distribution
+- [ ] IAM roles/policies
+- [ ] Clerk authentication
+- [ ] OpenAI API integration
+- [ ] Webhook endpoints
+- [ ] GraphQL subscriptions
+
+**Data Types Involved:**
+- [ ] User personal information
+- [ ] Financial/expense data
+- [ ] Receipt images/documents
+- [ ] API keys/tokens
+- [ ] Audit logs
+- [ ] System metadata
+
+## 🔍 Current Security Posture
+
+**Current Implementation:**
+Describe how security is currently handled for this area.
+
+**Identified Gaps:**
+What security measures are missing or could be improved?
+
+**Risk Assessment:**
+- **Likelihood:** [Low/Medium/High]
+- **Impact:** [Low/Medium/High]
+- **Overall Risk:** [Low/Medium/High]
+
+## 💡 Proposed Security Enhancement
+
+**Recommended Solution:**
+Describe the security improvement you're suggesting.
+
+**Security Benefits:**
+- Benefit 1
+- Benefit 2
+- Benefit 3
+
+**Implementation Approach:**
+1. Step 1
+2. Step 2
+3. Step 3
+
+## 🛡️ Security Best Practices
+
+**Relevant Standards:**
+- [ ] OWASP Top 10
+- [ ] AWS Security Best Practices
+- [ ] SOC 2 Type II
+- [ ] GDPR Compliance
+- [ ] PCI DSS (if applicable)
+- [ ] NIST Cybersecurity Framework
+
+**Compliance Requirements:**
+List any specific compliance requirements this relates to.
+
+## 🔧 Technical Details
+
+**Current Configuration:**
+```json
+{
+  "current": "configuration or code snippet"
+}
+```
+
+**Proposed Configuration:**
+```json
+{
+  "proposed": "improved configuration or code"
+}
+```
+
+**IAM Policy Changes:**
+```json
+{
+  "policy": "relevant IAM policy changes"
+}
+```
+
+## 📊 Security Monitoring
+
+**Current Monitoring:**
+- CloudWatch logs: [Yes/No]
+- CloudTrail: [Yes/No]
+- Custom metrics: [Yes/No]
+- Alerting: [Yes/No]
+
+**Proposed Monitoring:**
+- Additional log sources needed
+- New metrics to track
+- Alert thresholds
+- Dashboard updates
+
+## 🧪 Testing Approach
+
+**Security Testing:**
+- [ ] Static code analysis
+- [ ] Dynamic application testing
+- [ ] Penetration testing
+- [ ] Vulnerability scanning
+- [ ] Configuration review
+- [ ] Access control testing
+
+**Test Scenarios:**
+1. Test scenario 1
+2. Test scenario 2
+3. Test scenario 3
+
+## 📚 References & Research
+
+**Security Resources:**
+- [Link to relevant security documentation]
+- [Industry best practices]
+- [Compliance guidelines]
+
+**Similar Issues:**
+- [Links to related security discussions]
+- [Previous security improvements]
+
+## 🔄 Implementation Plan
+
+**Phase 1 - Immediate Actions:**
+- [ ] Action 1
+- [ ] Action 2
+- [ ] Action 3
+
+**Phase 2 - Short Term (1-4 weeks):**
+- [ ] Action 1
+- [ ] Action 2
+- [ ] Action 3
+
+**Phase 3 - Long Term (1-3 months):**
+- [ ] Action 1
+- [ ] Action 2
+- [ ] Action 3
+
+## 💰 Cost Considerations
+
+**Security Investment:**
+- Implementation cost: [estimate]
+- Ongoing operational cost: [estimate]
+- Potential risk cost: [estimate if not implemented]
+
+**ROI Justification:**
+How does this security improvement provide value?
+
+## 🎯 Success Criteria
+
+**Security Objectives:**
+- [ ] Objective 1 achieved
+- [ ] Objective 2 achieved
+- [ ] Objective 3 achieved
+
+**Verification Methods:**
+- Security audit results
+- Penetration test outcomes
+- Compliance assessment
+- Monitoring dashboard metrics
+
+## 📋 Additional Context
+
+**Business Context:**
+Why is this security improvement important for Expender?
+
+**User Impact:**
+How will this affect user experience (if at all)?
+
+**Timeline Constraints:**
+Any specific deadlines or timing considerations?

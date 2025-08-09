@@ -1,0 +1,104 @@
+---
+name: 🐛 Bug Report
+about: Report a bug or unexpected behavior in the Expender platform
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: []
+---
+
+## 🐛 Bug Description
+
+A clear and concise description of what the bug is.
+
+## 🔄 Steps to Reproduce
+
+1. Go to '...'
+2. Call API endpoint '...'
+3. Upload file '...'
+4. See error
+
+## ✅ Expected Behavior
+
+A clear and concise description of what you expected to happen.
+
+## ❌ Actual Behavior
+
+A clear and concise description of what actually happened.
+
+## 📋 Environment Information
+
+**Deployment Environment:**
+- [ ] Development
+- [ ] Staging
+- [ ] Production
+
+**API Endpoint(s) Affected:**
+- [ ] `/expenses` (CRUD operations)
+- [ ] `/expenses/batch` (Bulk operations)
+- [ ] `/expenses/export` (CSV export)
+- [ ] `/smartscans` (Receipt processing)
+- [ ] `/quotas` (User limits)
+- [ ] `/webhooks` (External integrations)
+
+**Client Information:**
+- Browser/Tool: [e.g. Chrome 91, Postman 9.0, curl]
+- Platform: [e.g. macOS, Windows, Linux]
+- Authentication: [e.g. Clerk JWT token]
+
+## 📸 Screenshots/Logs
+
+If applicable, add screenshots, error logs, or CloudWatch logs to help explain your problem.
+
+```
+[Paste any relevant logs, error messages, or stack traces here]
+```
+
+## 🔍 Additional Context
+
+Add any other context about the problem here:
+
+- **Frequency**: Does this happen every time or intermittently?
+- **Impact**: How many users are affected?
+- **Workaround**: Is there a temporary workaround?
+- **Related Issues**: Any related issues or PRs?
+
+## 🏥 Error Details
+
+**HTTP Status Code:** [e.g. 500, 400, 401]
+
+**Error Response:**
+```json
+{
+  "error": "paste error response here"
+}
+```
+
+**Request Details:**
+```json
+{
+  "method": "POST",
+  "url": "/api/endpoint",
+  "headers": {
+    "Authorization": "[REDACTED]"
+  },
+  "body": {
+    "data": "example"
+  }
+}
+```
+
+## 📊 Performance Impact
+
+- [ ] API response time degraded
+- [ ] SmartScan processing slow
+- [ ] Database queries timing out
+- [ ] Lambda cold starts increased
+- [ ] Not performance related
+
+## 🔐 Security Considerations
+
+- [ ] This bug may have security implications
+- [ ] User data potentially exposed
+- [ ] Authentication/authorization affected
+- [ ] No security concerns
+- [ ] Unsure about security impact

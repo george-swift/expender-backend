@@ -1,0 +1,230 @@
+---
+name: 🏗️ Infrastructure Issue
+about: Report infrastructure, deployment, or DevOps related issues
+title: "[INFRA] "
+labels: ["infrastructure", "devops", "needs-triage"]
+assignees: []
+---
+
+## 🏗️ Infrastructure Issue Summary
+
+A clear and concise description of the infrastructure issue.
+
+## 🔧 Issue Category
+
+**Infrastructure Component:**
+- [ ] 🚀 AWS Lambda Functions
+- [ ] 🌐 API Gateway
+- [ ] 🗄️ DynamoDB
+- [ ] 📦 S3 Storage
+- [ ] 📊 CloudWatch Logging/Monitoring
+- [ ] 🔄 EventBridge
+- [ ] 📈 Step Functions
+- [ ] 🔒 IAM Roles/Policies
+- [ ] 🌍 CloudFront CDN
+- [ ] 📋 AppSync GraphQL
+- [ ] 🏗️ Terraform Configuration
+- [ ] 📦 Chalice Framework
+- [ ] 🔧 CI/CD Pipeline
+
+**Issue Type:**
+- [ ] 🚨 Service outage/downtime
+- [ ] ⚡ Performance degradation
+- [ ] 🔧 Deployment failure
+- [ ] 📊 Monitoring/alerting issue
+- [ ] 💰 Cost optimization
+- [ ] 🔒 Security configuration
+- [ ] 📈 Scaling issue
+- [ ] 🔄 Resource provisioning
+- [ ] 📝 Configuration management
+
+## 🌍 Environment
+
+**Affected Environment(s):**
+- [ ] Development
+- [ ] Staging
+- [ ] Production
+- [ ] All environments
+
+**AWS Region:** [e.g., us-east-1, eu-west-1]
+
+**Terraform Workspace:** [e.g., dev, prod]
+
+## 📊 Current State vs Expected State
+
+**Current Behavior:**
+Describe what is currently happening with the infrastructure.
+
+**Expected Behavior:**
+Describe what should be happening.
+
+## 🔍 Symptoms & Impact
+
+**Observable Symptoms:**
+- [ ] High error rates
+- [ ] Increased latency
+- [ ] Resource exhaustion
+- [ ] Failed deployments
+- [ ] Cost spikes
+- [ ] Security alerts
+- [ ] Monitoring gaps
+
+**Business Impact:**
+- [ ] 🔴 Critical - Service unavailable
+- [ ] 🟠 High - Significant user impact
+- [ ] 🟡 Medium - Degraded performance
+- [ ] 🟢 Low - Minor inconvenience
+- [ ] 🔵 None - Preventive measure
+
+**Affected Users/Services:**
+- Number of affected users: [estimate]
+- Affected API endpoints: [list]
+- Downstream services impacted: [list]
+
+## 📋 Troubleshooting Steps Taken
+
+**Investigation Done:**
+- [ ] Checked CloudWatch logs
+- [ ] Reviewed CloudWatch metrics
+- [ ] Examined AWS service health dashboard
+- [ ] Verified Terraform state
+- [ ] Checked recent deployments
+- [ ] Reviewed cost explorer
+- [ ] Examined security findings
+
+**Commands/Actions Executed:**
+```bash
+# List any commands or actions taken during troubleshooting
+terraform plan
+aws logs describe-log-groups
+aws cloudwatch get-metric-statistics
+```
+
+## 📈 Metrics & Monitoring
+
+**Key Metrics:**
+- CPU utilization: [%]
+- Memory usage: [%]
+- Error rate: [%]
+- Response time: [ms]
+- Throughput: [requests/sec]
+- Cost: [$/day]
+
+**CloudWatch Dashboard Links:**
+- [Link to relevant dashboards]
+
+**Log Groups:**
+- `/aws/lambda/expender-{environment}`
+- [Other relevant log groups]
+
+## 🔧 Proposed Solution
+
+**Immediate Actions Needed:**
+1. Action 1
+2. Action 2
+3. Action 3
+
+**Long-term Improvements:**
+1. Improvement 1
+2. Improvement 2
+3. Improvement 3
+
+**Resource Changes Required:**
+- [ ] Scale up/down resources
+- [ ] Modify IAM policies
+- [ ] Update Terraform configuration
+- [ ] Change Lambda configuration
+- [ ] Adjust API Gateway settings
+- [ ] Update monitoring/alerting
+
+## 📁 Configuration Details
+
+**Terraform Configuration:**
+```hcl
+# Paste relevant Terraform configuration
+resource "aws_lambda_function" "example" {
+  # configuration details
+}
+```
+
+**AWS CLI Output:**
+```json
+{
+  "output": "paste relevant AWS CLI command output"
+}
+```
+
+**Environment Variables:**
+```bash
+# List relevant environment variables (mask sensitive data)
+AWS_REGION=us-east-1
+ENVIRONMENT=dev
+```
+
+## 🚨 Error Messages & Logs
+
+**Error Messages:**
+```
+[Paste error messages here]
+```
+
+**CloudWatch Logs:**
+```
+[Paste relevant log entries with timestamps]
+```
+
+**Terraform Errors:**
+```
+[Paste terraform plan/apply errors]
+```
+
+## 🔒 Security Considerations
+
+- [ ] This issue may have security implications
+- [ ] IAM permissions affected
+- [ ] Data exposure risk
+- [ ] Network security impact
+- [ ] No security concerns
+- [ ] Security review required
+
+## 💰 Cost Impact
+
+**Current Monthly Cost:** $[amount]
+**Projected Cost Change:** [increase/decrease] $[amount]
+**Cost Optimization Opportunity:** [Yes/No - describe]
+
+## ⚡ Performance Metrics
+
+**Before Issue:**
+- Latency: [ms]
+- Throughput: [req/sec]
+- Error rate: [%]
+
+**During Issue:**
+- Latency: [ms]
+- Throughput: [req/sec]
+- Error rate: [%]
+
+## 🔄 Recovery Plan
+
+**Rollback Steps:**
+1. Step 1
+2. Step 2
+3. Step 3
+
+**Verification Steps:**
+1. Check service health
+2. Verify functionality
+3. Monitor metrics
+
+## 📚 Additional Context
+
+**Related Changes:**
+- Recent deployments: [list with timestamps]
+- Configuration changes: [describe]
+- External dependencies: [list any external service issues]
+
+**Documentation:**
+- Runbook: [link to relevant runbook]
+- Architecture diagram: [link if available]
+- Previous similar issues: [links to related issues]

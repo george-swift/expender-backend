@@ -1,0 +1,197 @@
+---
+name: ❓ Question or Documentation
+about: Ask questions about usage, request documentation improvements, or seek clarification
+title: "[QUESTION] "
+labels: ["question", "documentation"]
+assignees: []
+---
+
+## ❓ Question Summary
+
+A clear and concise question or documentation request.
+
+## 📚 Question Category
+
+**Question Type:**
+- [ ] 🚀 Getting Started & Setup
+- [ ] 🔧 API Usage & Integration
+- [ ] 🤖 SmartScan Functionality
+- [ ] 🏗️ Infrastructure & Deployment
+- [ ] 🔒 Security & Authentication
+- [ ] 📊 Monitoring & Troubleshooting
+- [ ] 💰 Cost Management
+- [ ] 📈 Performance Optimization
+- [ ] 🔄 Best Practices
+- [ ] 📝 Documentation Improvement
+
+## 🎯 Specific Question
+
+**What would you like to know?**
+Please provide your specific question or what you're trying to accomplish.
+
+**Current Understanding:**
+What do you already know about this topic?
+
+**What You've Tried:**
+- [ ] Checked README.md
+- [ ] Reviewed API documentation
+- [ ] Searched existing issues
+- [ ] Consulted AWS documentation
+- [ ] Other: [describe]
+
+## 🔍 Context & Background
+
+**Use Case:**
+Describe what you're trying to achieve or build.
+
+**Experience Level:**
+- [ ] 🟢 Beginner (new to the platform)
+- [ ] 🟡 Intermediate (some experience)
+- [ ] 🟠 Advanced (experienced user)
+- [ ] 🔴 Expert (contributor/maintainer)
+
+**Environment:**
+- Development setup: [describe]
+- AWS experience: [level]
+- Programming language: [primary language]
+- Integration context: [web app, mobile, CLI, etc.]
+
+## 📋 Documentation Request
+
+**Missing Documentation:**
+What documentation is missing or unclear?
+
+**Suggested Improvements:**
+- [ ] Add code examples
+- [ ] Improve API reference
+- [ ] Add troubleshooting guide
+- [ ] Create tutorial/walkthrough
+- [ ] Add architecture diagrams
+- [ ] Improve error message explanations
+- [ ] Add FAQ section
+
+**Documentation Type:**
+- [ ] 📖 User Guide
+- [ ] 🔧 Developer Documentation
+- [ ] 🏗️ Infrastructure Guide
+- [ ] 🚀 Quick Start Tutorial
+- [ ] 📊 API Reference
+- [ ] ❓ FAQ
+- [ ] 🔍 Troubleshooting
+- [ ] 💡 Best Practices
+
+## 💡 Current Confusion
+
+**What's Unclear:**
+Specifically describe what's confusing or where you're stuck.
+
+**Expected Behavior:**
+What did you expect to happen or understand?
+
+**Actual Experience:**
+What actually happened or what's still unclear?
+
+## 🔧 Code Examples
+
+**What You're Trying to Do:**
+```python
+# Example of what you're trying to accomplish
+example = "show your code attempt"
+```
+
+**Expected Outcome:**
+```json
+{
+  "expected": "response or behavior"
+}
+```
+
+**Current Result:**
+```json
+{
+  "actual": "what you're getting instead"
+}
+```
+
+## 🌍 Environment Details
+
+**Development Environment:**
+- Operating System: [macOS/Windows/Linux]
+- Python version: [3.12+]
+- AWS CLI version: [version]
+- Terraform version: [version]
+
+**AWS Configuration:**
+- Region: [e.g., us-east-1]
+- Deployment environment: [dev/staging/prod]
+- Account type: [personal/organization]
+
+## 📚 Research Done
+
+**Resources Consulted:**
+- [ ] Project README
+- [ ] API documentation
+- [ ] AWS documentation
+- [ ] Stack Overflow
+- [ ] GitHub issues
+- [ ] Online tutorials
+- [ ] Other: [specify]
+
+**Search Terms Used:**
+List the search terms you've tried to find an answer.
+
+## 🎯 Ideal Answer
+
+**What Would Help:**
+- [ ] Step-by-step instructions
+- [ ] Code examples
+- [ ] Architecture explanation
+- [ ] Troubleshooting steps
+- [ ] Best practices guide
+- [ ] Link to relevant documentation
+- [ ] Video tutorial
+- [ ] Live example/demo
+
+**Answer Format Preference:**
+- [ ] Written explanation
+- [ ] Code examples
+- [ ] Diagrams/visuals
+- [ ] Links to resources
+- [ ] Video/screenshot
+
+## 🔗 Related Resources
+
+**Relevant Links:**
+- [Link to related documentation]
+- [Link to similar questions]
+- [Link to relevant code]
+
+**Similar Issues:**
+Have you found any similar questions or issues that partially address your question?
+
+## 📊 Impact & Priority
+
+**Urgency:**
+- [ ] 🔴 Blocking my work
+- [ ] 🟠 High priority
+- [ ] 🟡 Medium priority
+- [ ] 🟢 Low priority
+- [ ] 💡 Nice to know
+
+**Impact:**
+- [ ] Affects multiple team members
+- [ ] Blocks project progress
+- [ ] Improves development experience
+- [ ] General knowledge improvement
+
+## 💭 Additional Context
+
+**Team Context:**
+- Experience with similar platforms: [describe]
+- Timeline constraints: [any deadlines]
+
+**Business Context:**
+Why is this question important for your project or organization?
+
+**Follow-up Questions:**
+Are there related questions you might have once this is answered?
