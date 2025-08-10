@@ -347,13 +347,25 @@ resource "aws_iam_role_policy" "bucket_event_handler_role" {
       },
       {
         Effect = "Allow"
+        Action = [
+          "dynamodb:UpdateItem"
+        ]
+        Resource = aws_dynamodb_table.quotas.arn
+      },
+      {
+        Effect = "Allow"
         Action = "appsync:GraphQL"
         Resource = "${aws_appsync_graphql_api.smartscan_api.arn}/types/Mutation/fields/publishSmartScanResult"
       }
     ]
   })
 
-  depends_on = [aws_iam_role.bucket_event_handler_role, aws_dynamodb_table.smartscans, aws_appsync_graphql_api.smartscan_api]
+  depends_on = [
+    aws_iam_role.bucket_event_handler_role,
+    aws_dynamodb_table.smartscans,
+    aws_dynamodb_table.quotas,
+    aws_appsync_graphql_api.smartscan_api
+  ]
 }
 
 resource "aws_iam_role_policy_attachment" "bucket_event_handler_basic_execution" {
