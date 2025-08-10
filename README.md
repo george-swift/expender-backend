@@ -499,7 +499,7 @@ This project is licensed under the terms specified in the [LICENSE.md](./LICENSE
 
 **🐛 Bug Reports & Feature Requests:**
 
-- [Open an issue](https://github.com/your-organization/expender-backend/issues) on GitHub
+- [Open an issue](https://github.com/george-swift/expender-backend/issues) on GitHub
 - Include detailed reproduction steps and environment information as outlined in [Contributing Guidelines](./CONTRIBUTING.md)
 
 **📧 Direct Support:**
