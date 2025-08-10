@@ -506,7 +506,6 @@ This project is licensed under the terms specified in the [LICENSE.md](./LICENSE
 
 - Email: [support@expender.app](mailto:support@expender.app)
 - Response time: 24-48 hours for general inquiries
-- Priority support available for Pro tier users
 
 **📚 Documentation:**
 

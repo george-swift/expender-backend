@@ -117,7 +117,7 @@ Before you begin development, ensure you have the following installed:
 1. **Fork and Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-organization/expender-backend.git
+   git clone https://github.com/george-swift/expender-backend.git
    cd expender-backend
    ```
 
