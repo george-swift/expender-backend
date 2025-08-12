@@ -17,7 +17,11 @@ class Config(BaseSettings):
         ..., description="AppSync GraphQL endpoint for smart scans"
     )
     clerk_secret_key: SecretStr = Field(
-        ..., description="Clerk secret key for authentication"
+        ..., description="Clerk secret key for network-based token verification"
+    )
+    clerk_jwt_public_key: SecretStr = Field(
+        ...,
+        description="Clerk JWT public key in PEM format for networkless token verification",
     )
     clerk_webhook_signing_secret: SecretStr = Field(
         ..., description="Clerk webhook signing secret for secure webhook handling"

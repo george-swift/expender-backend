@@ -6,7 +6,13 @@ variable "aws_region" {
 
 variable "clerk_secret_key" {
   type        = string
-  description = "Clerk secret key for authentication"
+  description = "Clerk secret key for network-based token verification"
+  sensitive   = true
+}
+
+variable "clerk_jwt_public_key" {
+  type        = string
+  description = "Clerk JWT public key in PEM format for networkless token verification"
   sensitive   = true
 }
 
