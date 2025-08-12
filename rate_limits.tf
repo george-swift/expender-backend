@@ -7,8 +7,8 @@
 
 # Usage plan for free tier users with conservative limits
 resource "aws_api_gateway_usage_plan" "free_tier" {
-  name         = "expender-${var.environment}-free-tier"
-  description  = "Usage plan for free tier users with conservative limits"
+  name        = "expender-${var.environment}-free-tier"
+  description = "Usage plan for free tier users with conservative limits"
 
   api_stages {
     api_id = aws_api_gateway_rest_api.rest_api.id
@@ -23,8 +23,8 @@ resource "aws_api_gateway_usage_plan" "free_tier" {
 
   # Conservative rate limits for free users
   throttle_settings {
-    rate_limit  = 10   # 10 requests per second
-    burst_limit = 20   # 20 request burst capacity
+    rate_limit  = 10 # 10 requests per second
+    burst_limit = 20 # 20 request burst capacity
   }
 
   tags = {
@@ -40,8 +40,8 @@ resource "aws_api_gateway_usage_plan" "free_tier" {
 
 # Usage plan for pro tier users with higher limits
 resource "aws_api_gateway_usage_plan" "pro_tier" {
-  name         = "expender-${var.environment}-pro-tier"
-  description  = "Usage plan for pro tier users with higher limits"
+  name        = "expender-${var.environment}-pro-tier"
+  description = "Usage plan for pro tier users with higher limits"
 
   api_stages {
     api_id = aws_api_gateway_rest_api.rest_api.id
@@ -56,8 +56,8 @@ resource "aws_api_gateway_usage_plan" "pro_tier" {
 
   # Higher rate limits for pro users
   throttle_settings {
-    rate_limit  = 50   # 50 requests per second
-    burst_limit = 100  # 100 request burst capacity
+    rate_limit  = 50  # 50 requests per second
+    burst_limit = 100 # 100 request burst capacity
   }
 
   tags = {

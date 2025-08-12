@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "assets" {
 
   tags = {
     Environment = var.environment
-    Name = local.assets_bucket_name
+    Name        = local.assets_bucket_name
   }
 }
 
@@ -38,7 +38,7 @@ resource "aws_s3_bucket_cors_configuration" "assets" {
 
 # Block all public access to S3 bucket
 resource "aws_s3_bucket_public_access_block" "assets" {
-  bucket = aws_s3_bucket.assets.id
+  bucket                  = aws_s3_bucket.assets.id
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
@@ -79,9 +79,9 @@ resource "aws_cloudfront_cache_policy" "assets_cache_policy" {
 # CloudFront distribution for global file delivery
 resource "aws_cloudfront_distribution" "assets" {
   origin {
-    domain_name = aws_s3_bucket.assets.bucket_regional_domain_name
+    domain_name              = aws_s3_bucket.assets.bucket_regional_domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
-    origin_id   = "S3-${aws_s3_bucket.assets.id}"
+    origin_id                = "S3-${aws_s3_bucket.assets.id}"
   }
 
   enabled             = true
@@ -114,7 +114,7 @@ resource "aws_cloudfront_distribution" "assets" {
     Name        = local.cdn_name
   }
 
-   depends_on = [
+  depends_on = [
     aws_s3_bucket.assets,
     aws_cloudfront_cache_policy.assets_cache_policy
   ]
@@ -127,12 +127,12 @@ resource "aws_s3_bucket_policy" "assets" {
     Version = "2012-10-17"
     Statement = [
       {
-        Effect    = "Allow"
+        Effect = "Allow"
         Principal = {
           AWS = aws_iam_role.api_service_role.arn
         }
-        Action    = ["s3:PutObject", "s3:GetObject", "s3:DeleteObject"]
-        Resource  = "${aws_s3_bucket.assets.arn}/*"
+        Action   = ["s3:PutObject", "s3:GetObject", "s3:DeleteObject"]
+        Resource = "${aws_s3_bucket.assets.arn}/*"
       },
       {
         Effect    = "Allow"

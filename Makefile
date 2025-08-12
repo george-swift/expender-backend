@@ -17,5 +17,6 @@ clean:
 format:
 	black .
 	isort .
+	terraform fmt
 
 .PHONY: deploy-dev deploy-prod clean format

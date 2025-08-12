@@ -86,10 +86,10 @@ resource "aws_appsync_datasource" "smartscan_results" {
 
 # GraphQL mutation resolver for publishing SmartScan results
 resource "aws_appsync_resolver" "publish_smartscan_result" {
-  api_id      = aws_appsync_graphql_api.smartscan_api.id
-  type        = "Mutation"
-  field       = "publishSmartScanResult"
-  data_source = aws_appsync_datasource.smartscan_results.name
+  api_id           = aws_appsync_graphql_api.smartscan_api.id
+  type             = "Mutation"
+  field            = "publishSmartScanResult"
+  data_source      = aws_appsync_datasource.smartscan_results.name
   request_template = <<EOF
 #if($ctx.identity.resolverContext.userId != $ctx.args.userId)
   $util.error("Unauthorized: User ID does not match authenticated user")
@@ -137,11 +137,11 @@ EOF
 
 # GraphQL query resolver for retrieving SmartScan results
 resource "aws_appsync_resolver" "get_smartscan_result" {
-  api_id      = aws_appsync_graphql_api.smartscan_api.id
-  type        = "Query"
-  field       = "getSmartScanResult"
-  data_source = aws_appsync_datasource.smartscan_results.name
-  request_template = <<EOF
+  api_id            = aws_appsync_graphql_api.smartscan_api.id
+  type              = "Query"
+  field             = "getSmartScanResult"
+  data_source       = aws_appsync_datasource.smartscan_results.name
+  request_template  = <<EOF
 #if($ctx.identity.resolverContext.userId != $ctx.args.userId)
   $util.error("Unauthorized: User ID does not match authenticated user")
 #end
@@ -165,13 +165,13 @@ EOF
 
 # Step Functions state machine for orchestrated user data deletion
 resource "aws_sfn_state_machine" "user_data_deletion" {
-  name       = "user-data-deletion-workflow"
-  role_arn   = aws_iam_role.step_functions_execution_role.arn
+  name     = "user-data-deletion-workflow"
+  role_arn = aws_iam_role.step_functions_execution_role.arn
   definition = templatefile("${path.module}/user_data_deletion_workflow.json", {
-    InitializeDeletionLambdaArn    = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:expender-${var.environment}-initialize_deletion"
-    DeleteSmartScansLambdaArn      = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:expender-${var.environment}-delete_smartscans_batch"
-    MarkExpensesLambdaArn          = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:expender-${var.environment}-mark_expenses_for_deletion"
-    CompleteDeletionLambdaArn      = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:expender-${var.environment}-complete_deletion"
+    InitializeDeletionLambdaArn = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:expender-${var.environment}-initialize_deletion"
+    DeleteSmartScansLambdaArn   = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:expender-${var.environment}-delete_smartscans_batch"
+    MarkExpensesLambdaArn       = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:expender-${var.environment}-mark_expenses_for_deletion"
+    CompleteDeletionLambdaArn   = "arn:aws:lambda:${var.aws_region}:${local.account_id}:function:expender-${var.environment}-complete_deletion"
   })
 
   tags = {

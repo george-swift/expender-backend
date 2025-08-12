@@ -116,10 +116,10 @@ resource "aws_lambda_event_source_mapping" "expense_stream_handler" {
 
 # SmartScan results table with TTL
 resource "aws_dynamodb_table" "smartscans" {
-  name             = local.smartscans_table_name
-  billing_mode     = "PAY_PER_REQUEST"
-  hash_key         = "userId"
-  range_key        = "scanId"
+  name         = local.smartscans_table_name
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "userId"
+  range_key    = "scanId"
 
   attribute {
     name = "userId"
@@ -138,7 +138,7 @@ resource "aws_dynamodb_table" "smartscans" {
 
   tags = {
     Environment = var.environment
-    Name = local.smartscans_table_name
+    Name        = local.smartscans_table_name
   }
 }
 

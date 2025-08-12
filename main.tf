@@ -1,17 +1,6 @@
 # Terraform configuration for Expender serverless infrastructure
 # Manages IAM roles, permissions, and account-level settings
 
-terraform {
-  required_version = ">= 1.0.0"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 6.0"
-    }
-  }
-}
-
 provider "aws" {
   region = var.aws_region
 }
@@ -21,20 +10,20 @@ data "aws_caller_identity" "current" {}
 
 # Centralized resource naming with environment separation
 locals {
-  account_id                                 = data.aws_caller_identity.current.account_id
-  api_gateway_authorizer_role_name           = "expender-${var.environment}-api-gateway-authorizer-role"
-  api_service_role_name                      = "expender-${var.environment}-api-service-role"
-  appsync_graphql_api_name                   = "expender-${var.environment}-appsync-graphql-api"
-  appsync_graphql_authorizer_role_name       = "expender-${var.environment}-appsync-graphql-authorizer-role"
-  appsync_service_role_name                  = "expender-${var.environment}-appsync-service-role"
-  assets_bucket_name                         = "expender-${var.environment}-assets"
-  assets_bucket_event_handler_role_name      = "expender-${var.environment}-bucket-event-handler-role"
-  cdn_name                                   = "expender-${var.environment}-cdn"
-  event_bus_name                             = "expender-${var.environment}-event-bus"
-  expenses_table_name                        = "expender-${var.environment}-expenses"
-  quotas_table_name                          = "expender-${var.environment}-quotas"
-  step_functions_execution_role_name         = "expender-${var.environment}-step-functions-execution-role"
-  smartscans_table_name                      = "expender-${var.environment}-smartscans"
+  account_id                            = data.aws_caller_identity.current.account_id
+  api_gateway_authorizer_role_name      = "expender-${var.environment}-api-gateway-authorizer-role"
+  api_service_role_name                 = "expender-${var.environment}-api-service-role"
+  appsync_graphql_api_name              = "expender-${var.environment}-appsync-graphql-api"
+  appsync_graphql_authorizer_role_name  = "expender-${var.environment}-appsync-graphql-authorizer-role"
+  appsync_service_role_name             = "expender-${var.environment}-appsync-service-role"
+  assets_bucket_name                    = "expender-${var.environment}-assets"
+  assets_bucket_event_handler_role_name = "expender-${var.environment}-bucket-event-handler-role"
+  cdn_name                              = "expender-${var.environment}-cdn"
+  event_bus_name                        = "expender-${var.environment}-event-bus"
+  expenses_table_name                   = "expender-${var.environment}-expenses"
+  quotas_table_name                     = "expender-${var.environment}-quotas"
+  step_functions_execution_role_name    = "expender-${var.environment}-step-functions-execution-role"
+  smartscans_table_name                 = "expender-${var.environment}-smartscans"
 }
 
 # ============================================================================
@@ -96,8 +85,8 @@ resource "aws_iam_role" "api_service_role" {
 }
 
 resource "aws_iam_role_policy" "api_service_role_policy" {
-  name        = "${local.api_service_role_name}-policy"
-  role        = aws_iam_role.api_service_role.name
+  name = "${local.api_service_role_name}-policy"
+  role = aws_iam_role.api_service_role.name
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -251,8 +240,8 @@ resource "aws_iam_role_policy" "appsync_service_role_policy" {
         Resource = "*"
       },
       {
-        Effect = "Allow",
-        Action = "xray:PutTraceSegments",
+        Effect   = "Allow",
+        Action   = "xray:PutTraceSegments",
         Resource = "*"
       },
     ]
@@ -314,13 +303,13 @@ resource "aws_iam_role" "bucket_event_handler_role" {
 }
 
 resource "aws_iam_role_policy" "bucket_event_handler_role" {
-  name   = "${local.assets_bucket_event_handler_role_name}-policy"
-  role   = aws_iam_role.bucket_event_handler_role.id
+  name = "${local.assets_bucket_event_handler_role_name}-policy"
+  role = aws_iam_role.bucket_event_handler_role.id
 
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
-       {
+      {
         Effect = "Allow"
         Action = [
           "textract:AnalyzeExpense"
@@ -353,8 +342,8 @@ resource "aws_iam_role_policy" "bucket_event_handler_role" {
         Resource = aws_dynamodb_table.quotas.arn
       },
       {
-        Effect = "Allow"
-        Action = "appsync:GraphQL"
+        Effect   = "Allow"
+        Action   = "appsync:GraphQL"
         Resource = "${aws_appsync_graphql_api.smartscan_api.arn}/types/Mutation/fields/publishSmartScanResult"
       }
     ]
