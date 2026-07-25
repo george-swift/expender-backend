@@ -50,3 +50,35 @@ variable "smartscan_encryption_key" {
   type        = string
   sensitive   = true
 }
+
+variable "stripe_cancel_url" {
+  type        = string
+  description = "Stripe Checkout cancellation redirect URL"
+  default     = ""
+}
+
+variable "stripe_price_id_monthly" {
+  type        = string
+  description = "Stripe Price ID for the $20 monthly premium subscription"
+  default     = ""
+}
+
+variable "stripe_secret_key" {
+  type        = string
+  description = "Stripe secret key for billing operations"
+  sensitive   = true
+  default     = ""
+}
+
+variable "stripe_success_url" {
+  type        = string
+  description = "Stripe Checkout success redirect URL"
+  default     = ""
+}
+
+variable "stripe_webhook_secret" {
+  type        = string
+  description = "Stripe webhook endpoint signing secret"
+  sensitive   = true
+  default     = ""
+}

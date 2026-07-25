@@ -29,7 +29,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -40,7 +39,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -69,7 +75,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -80,7 +85,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -109,7 +121,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -120,7 +131,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -149,7 +167,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -160,7 +177,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -189,7 +213,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -200,7 +223,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -229,7 +259,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -240,7 +269,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -269,7 +305,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -280,7 +315,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -309,7 +351,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -320,7 +361,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -349,7 +397,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -360,7 +407,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -389,7 +443,6 @@
             "CLERK_SECRET_KEY": "${var.clerk_secret_key}",
             "CLERK_JWT_PUBLIC_KEY": "${var.clerk_jwt_public_key}",
             "CLERK_WEBHOOK_SIGNING_SECRET": "${var.clerk_webhook_signing_secret}",
-            "CLOUDFRONT_DOMAIN_NAME": "${aws_cloudfront_distribution.assets.domain_name}",
             "EVENTS_BUS_NAME": "${aws_cloudwatch_event_bus.event_bus.name}",
             "EXPENSES_TABLE_NAME": "${aws_dynamodb_table.expenses.name}",
             "EXPENSES_TABLE_STREAM_ARN": "${aws_dynamodb_table.expenses.stream_arn}",
@@ -400,7 +453,14 @@
             "QUOTAS_TABLE_NAME": "${aws_dynamodb_table.quotas.name}",
             "QUOTAS_TABLE_STREAM_ARN": "${aws_dynamodb_table.quotas.stream_arn}",
             "SMARTSCAN_ENCRYPTION_KEY": "${var.smartscan_encryption_key}",
-            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}"
+            "SMARTSCANS_TABLE_NAME": "${aws_dynamodb_table.smartscans.name}",
+            "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+            "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+            "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+            "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+            "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+            "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+            "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}"
           }
         },
         "tracing_config": {
@@ -494,7 +554,7 @@
     }
   },
   "locals": {
-    "chalice_api_swagger": "{\"swagger\": \"2.0\", \"info\": {\"version\": \"1.0\", \"title\": \"expender\"}, \"schemes\": [\"https\"], \"paths\": {\"/webhooks\": {\"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"summary\": \"Handle webhook events from Clerk auth service.\", \"description\": \"Currently supported events and subsequent actions:\\n- user.created: Creates a new user entry in the quotas table\\n- user.deleted: Removes user data from databases and object storage\"}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'POST,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url},${var.frontend_dev_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/expenses\": {\"get\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'GET,POST,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url},${var.frontend_dev_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/expenses/batch\": {\"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"delete\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'POST,DELETE,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url},${var.frontend_dev_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/expenses/{expense_id}\": {\"put\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}], \"parameters\": [{\"name\": \"expense_id\", \"in\": \"path\", \"required\": true, \"type\": \"string\"}]}, \"delete\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}], \"parameters\": [{\"name\": \"expense_id\", \"in\": \"path\", \"required\": true, \"type\": \"string\"}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'PUT,DELETE,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url},${var.frontend_dev_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/expenses/export\": {\"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'POST,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url},${var.frontend_dev_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/smartscans\": {\"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'POST,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url},${var.frontend_dev_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/quotas\": {\"get\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'GET,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url},${var.frontend_dev_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}}, \"definitions\": {\"Empty\": {\"type\": \"object\", \"title\": \"Empty Schema\"}}, \"x-amazon-apigateway-binary-media-types\": [\"application/octet-stream\", \"application/x-tar\", \"application/zip\", \"audio/basic\", \"audio/ogg\", \"audio/mp4\", \"audio/mpeg\", \"audio/wav\", \"audio/webm\", \"image/png\", \"image/jpg\", \"image/jpeg\", \"image/gif\", \"video/ogg\", \"video/mpeg\", \"video/webm\"], \"securityDefinitions\": {\"api_gateway_authorizer\": {\"in\": \"header\", \"type\": \"apiKey\", \"name\": \"Authorization\", \"x-amazon-apigateway-authtype\": \"custom\", \"x-amazon-apigateway-authorizer\": {\"type\": \"token\", \"authorizerUri\": \"${aws_lambda_function.api_gateway_authorizer.invoke_arn}\"}}}}"
+    "chalice_api_swagger": "{\"swagger\": \"2.0\", \"info\": {\"version\": \"1.0\", \"title\": \"expender\"}, \"schemes\": [\"https\"], \"paths\": {\"/webhooks\": {\"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"summary\": \"Handle webhook events from Clerk auth service.\", \"description\": \"Currently supported events and subsequent actions:\\n- user.created: Creates a new user entry in the quotas table\\n- user.deleted: Removes user data from databases and object storage\"}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'POST,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/expenses\": {\"get\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'GET,POST,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/expenses/batch\": {\"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"delete\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'POST,DELETE,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/expenses/{expense_id}\": {\"put\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}], \"parameters\": [{\"name\": \"expense_id\", \"in\": \"path\", \"required\": true, \"type\": \"string\"}]}, \"delete\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}], \"parameters\": [{\"name\": \"expense_id\", \"in\": \"path\", \"required\": true, \"type\": \"string\"}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'PUT,DELETE,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/expenses/export\": {\"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'POST,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/smartscans\": {\"post\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'POST,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}, \"/quotas\": {\"get\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\"}}, \"uri\": \"${aws_lambda_function.api_handler.invoke_arn}\", \"passthroughBehavior\": \"when_no_match\", \"httpMethod\": \"POST\", \"contentHandling\": \"CONVERT_TO_TEXT\", \"type\": \"aws_proxy\"}, \"security\": [{\"api_gateway_authorizer\": []}]}, \"options\": {\"consumes\": [\"application/json\"], \"produces\": [\"application/json\"], \"responses\": {\"200\": {\"description\": \"200 response\", \"schema\": {\"$ref\": \"#/definitions/Empty\"}, \"headers\": {\"Access-Control-Allow-Methods\": {\"type\": \"string\"}, \"Access-Control-Allow-Origin\": {\"type\": \"string\"}, \"Access-Control-Allow-Headers\": {\"type\": \"string\"}, \"Access-Control-Expose-Headers\": {\"type\": \"string\"}, \"Access-Control-Max-Age\": {\"type\": \"string\"}, \"Access-Control-Allow-Credentials\": {\"type\": \"string\"}}}}, \"x-amazon-apigateway-integration\": {\"responses\": {\"default\": {\"statusCode\": \"200\", \"responseParameters\": {\"method.response.header.Access-Control-Allow-Methods\": \"'GET,OPTIONS'\", \"method.response.header.Access-Control-Allow-Origin\": \"'${var.frontend_app_url}'\", \"method.response.header.Access-Control-Allow-Headers\": \"'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'\", \"method.response.header.Access-Control-Expose-Headers\": \"'X-Total-Count'\", \"method.response.header.Access-Control-Max-Age\": \"'600'\", \"method.response.header.Access-Control-Allow-Credentials\": \"'true'\"}}}, \"requestTemplates\": {\"application/json\": \"{\\\"statusCode\\\": 200}\"}, \"passthroughBehavior\": \"when_no_match\", \"type\": \"mock\", \"contentHandling\": \"CONVERT_TO_TEXT\"}}}}, \"definitions\": {\"Empty\": {\"type\": \"object\", \"title\": \"Empty Schema\"}}, \"x-amazon-apigateway-binary-media-types\": [\"application/octet-stream\", \"application/x-tar\", \"application/zip\", \"audio/basic\", \"audio/ogg\", \"audio/mp4\", \"audio/mpeg\", \"audio/wav\", \"audio/webm\", \"image/png\", \"image/jpg\", \"image/jpeg\", \"image/gif\", \"video/ogg\", \"video/mpeg\", \"video/webm\"], \"securityDefinitions\": {\"api_gateway_authorizer\": {\"in\": \"header\", \"type\": \"apiKey\", \"name\": \"Authorization\", \"x-amazon-apigateway-authtype\": \"custom\", \"x-amazon-apigateway-authorizer\": {\"type\": \"token\", \"authorizerUri\": \"${aws_lambda_function.api_gateway_authorizer.invoke_arn}\"}}}}"
   },
   "data": {
     "aws_caller_identity": {

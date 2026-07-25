@@ -203,3 +203,23 @@ resource "aws_api_gateway_method_settings" "webhooks_throttling" {
     aws_api_gateway_account.main
   ]
 }
+
+resource "aws_api_gateway_method_settings" "stripe_webhooks_throttling" {
+  rest_api_id = aws_api_gateway_rest_api.rest_api.id
+  stage_name  = aws_api_gateway_stage.rest_api.stage_name
+  method_path = "webhooks/stripe/POST"
+
+  settings {
+    throttling_rate_limit  = var.environment == "prod" ? 100 : 50
+    throttling_burst_limit = var.environment == "prod" ? 200 : 100
+
+    metrics_enabled = true
+    logging_level   = "INFO"
+  }
+
+  depends_on = [
+    aws_api_gateway_rest_api.rest_api,
+    aws_api_gateway_stage.rest_api,
+    aws_api_gateway_account.main
+  ]
+}

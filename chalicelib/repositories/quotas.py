@@ -71,6 +71,12 @@ class QuotaRepository:
             "plan": constants.USER_FREE_PLAN,
             "smartScanCount": 0,
             "smartScanLimit": constants.FREE_PLAN_SMART_SCAN_LIMIT,
+            "stripeCustomerId": None,
+            "stripeSubscriptionId": None,
+            "subscriptionStatus": None,
+            "stripePriceId": None,
+            "currentPeriodEnd": None,
+            "cancelAtPeriodEnd": False,
             "expireAt": expires_at,
             "createdAt": timestamp,
             "updatedAt": timestamp,
@@ -174,6 +180,105 @@ class QuotaRepository:
                 raise ValueError("User quota not found or account has been deactivated")
 
             raise ValueError("User has reached their Smart Scan limit")
+
+    def get_user_quota_by_stripe_customer_id(self, customer_id: str) -> dict | None:
+        """
+        Find a quota record by Stripe customer ID.
+
+        :param customer_id: Stripe customer ID
+        :returns: Quota dictionary or None if not found
+        """
+        response = self.table.query(
+            IndexName="StripeCustomerIndex",
+            KeyConditionExpression="stripeCustomerId = :customer_id",
+            ExpressionAttributeValues={":customer_id": customer_id},
+            Limit=1,
+        )
+        items = response.get("Items", [])
+        return items[0] if items else None
+
+    def update_stripe_customer_id(self, user_id: str, customer_id: str) -> dict:
+        """
+        Persist the Stripe customer ID for a user.
+
+        :param user_id: The user ID to update
+        :param customer_id: Stripe customer ID
+        :returns: Updated quota attributes
+        """
+        timestamp = datetime.now(timezone.utc).isoformat()
+        response = self.table.update_item(
+            Key={"userId": user_id},
+            UpdateExpression="SET stripeCustomerId = :customer_id, updatedAt = :updatedAt",
+            ExpressionAttributeValues={
+                ":customer_id": customer_id,
+                ":updatedAt": timestamp,
+            },
+            ConditionExpression="attribute_exists(userId)",
+            ReturnValues="ALL_NEW",
+        )
+        return response.get("Attributes", {})
+
+    def apply_subscription_snapshot(self, user_id: str, snapshot: dict) -> dict:
+        """
+        Apply Stripe subscription state to the user's entitlement record.
+
+        Pro rows clear DynamoDB TTL (`expireAt`) so paid entitlements are not
+        deleted by the free-tier monthly expiry attribute.
+        """
+        now = datetime.now(timezone.utc)
+        timestamp = now.isoformat()
+        subscription_status = snapshot.get("subscriptionStatus")
+        plan = (
+            constants.USER_PRO_PLAN
+            if subscription_status in constants.PAID_SUBSCRIPTION_STATUSES
+            else constants.USER_FREE_PLAN
+        )
+        smart_scan_limit = (
+            -1
+            if plan == constants.USER_PRO_PLAN
+            else constants.FREE_PLAN_SMART_SCAN_LIMIT
+        )
+
+        expression_attribute_values = {
+            ":plan": plan,
+            ":smartScanLimit": smart_scan_limit,
+            ":stripeCustomerId": snapshot.get("stripeCustomerId"),
+            ":stripeSubscriptionId": snapshot.get("stripeSubscriptionId"),
+            ":subscriptionStatus": subscription_status,
+            ":stripePriceId": snapshot.get("stripePriceId"),
+            ":currentPeriodEnd": snapshot.get("currentPeriodEnd"),
+            ":cancelAtPeriodEnd": snapshot.get("cancelAtPeriodEnd", False),
+            ":updatedAt": timestamp,
+        }
+
+        update_expression = (
+            "SET #plan = :plan, smartScanLimit = :smartScanLimit, "
+            "stripeCustomerId = :stripeCustomerId, "
+            "stripeSubscriptionId = :stripeSubscriptionId, "
+            "subscriptionStatus = :subscriptionStatus, "
+            "stripePriceId = :stripePriceId, "
+            "currentPeriodEnd = :currentPeriodEnd, "
+            "cancelAtPeriodEnd = :cancelAtPeriodEnd, "
+            "updatedAt = :updatedAt"
+        )
+
+        if plan == constants.USER_PRO_PLAN:
+            update_expression += " REMOVE expireAt"
+        else:
+            update_expression += ", expireAt = :expireAt"
+            expression_attribute_values[":expireAt"] = int(
+                (now + timedelta(days=30)).timestamp()
+            )
+
+        response = self.table.update_item(
+            Key={"userId": user_id},
+            UpdateExpression=update_expression,
+            ExpressionAttributeNames={"#plan": "plan"},
+            ExpressionAttributeValues=expression_attribute_values,
+            ConditionExpression="attribute_exists(userId)",
+            ReturnValues="ALL_NEW",
+        )
+        return response.get("Attributes", {})
 
 
 @dataclass

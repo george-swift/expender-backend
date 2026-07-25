@@ -5,9 +5,11 @@ from svix.webhooks import Webhook, WebhookVerificationError
 from chalicelib.models import config
 from chalicelib.resources import EventBridge
 from chalicelib.services import QuotaService
+from chalicelib.services.billing import BillingService
 
 logger = Logger(child=True)
 quota_service = QuotaService()
+billing_service = BillingService()
 event_bridge = EventBridge()
 webhooks_router = Blueprint(__name__)
 
@@ -66,6 +68,47 @@ def handle_webhooks():
         else:
             logger.info(f"Unsupported event type: {event_type}")
             return Response(status_code=400, body={"message": "Unsupported event type"})
-    except WebhookVerificationError as e:
-        logger.error(f"Webhook verification failed: {str(e)}")
-        return Response(status_code=500, body={"message": "Invalid webhook signature"})
+    except WebhookVerificationError:
+        logger.warning("Clerk webhook signature verification failed")
+        return Response(status_code=401, body={"message": "Invalid webhook signature"})
+
+
+@webhooks_router.route("/webhooks/stripe", methods=["POST"], authorizer=None)
+def handle_stripe_webhooks():
+    """
+    Handle Stripe billing webhooks.
+
+    Supported events:
+    - customer.subscription.created
+    - customer.subscription.updated
+    - customer.subscription.deleted
+    """
+    headers = webhooks_router.current_request.headers
+    raw_body = webhooks_router.current_request._body
+    signature = headers.get("stripe-signature")
+
+    if not signature:
+        return Response(status_code=400, body={"message": "Missing Stripe signature"})
+
+    try:
+        event = billing_service.construct_webhook_event(raw_body, signature)
+    except ValueError:
+        logger.warning("Invalid Stripe webhook payload")
+        return Response(status_code=400, body={"message": "Invalid webhook payload"})
+    except Exception as exc:
+        if exc.__class__.__name__ == "SignatureVerificationError":
+            logger.warning("Stripe webhook signature verification failed")
+            return Response(
+                status_code=401, body={"message": "Invalid webhook signature"}
+            )
+        raise
+
+    event_type = event.get("type")
+    if event_type in {
+        "customer.subscription.created",
+        "customer.subscription.updated",
+        "customer.subscription.deleted",
+    }:
+        billing_service.handle_subscription_event(event)
+
+    return Response(status_code=200, body={"received": True})

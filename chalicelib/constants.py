@@ -6,6 +6,9 @@ ACCOUNT_STATUS_DEACTIVATED = "deactivated"
 USER_FREE_PLAN = "free"
 USER_PRO_PLAN = "pro"
 
+# Stripe-backed subscription states that grant premium usage.
+PAID_SUBSCRIPTION_STATUSES = {"active", "trialing"}
+
 # Smart scan limits
 FREE_PLAN_SMART_SCAN_LIMIT = 30
 PRO_PLAN_SMART_SCAN_LIMIT = float("inf")  # Unlimited for Pro plan

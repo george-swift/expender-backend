@@ -6,8 +6,13 @@ from chalicelib.authorizers import authorizers
 from chalicelib.events import account_lifecycle, bucket_event, expense_stream
 from chalicelib.middleware import handle_errors
 from chalicelib.models import config
-from chalicelib.routers import (expense_router, quota_router, smartscan_router,
-                                webhooks_router)
+from chalicelib.routers import (
+    billing_router,
+    expense_router,
+    quota_router,
+    smartscan_router,
+    webhooks_router,
+)
 
 logger = Logger(use_rfc3339=True, utc=True)
 tracer = Tracer()
@@ -16,7 +21,7 @@ app = Chalice(app_name="expender")
 
 # Configure CORS for the application
 cors_config = CORSConfig(
-    allow_origin=f"{config.frontend_app_url},{config.frontend_dev_app_url}",
+    allow_origin=config.frontend_app_url,
     max_age=600,
     expose_headers=["X-Total-Count"],
     allow_credentials=True,
@@ -49,6 +54,7 @@ app.register_blueprint(authorizers)
 app.register_blueprint(expense_router)
 app.register_blueprint(smartscan_router)
 app.register_blueprint(quota_router)
+app.register_blueprint(billing_router)
 app.register_blueprint(account_lifecycle)
 app.register_blueprint(bucket_event)
 app.register_blueprint(expense_stream)

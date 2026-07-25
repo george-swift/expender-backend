@@ -160,6 +160,11 @@ resource "aws_dynamodb_table" "quotas" {
     type = "S"
   }
 
+  attribute {
+    name = "stripeCustomerId"
+    type = "S"
+  }
+
   ttl {
     attribute_name = "expireAt"
     enabled        = true
@@ -174,8 +179,59 @@ resource "aws_dynamodb_table" "quotas" {
     non_key_attributes = ["smartScanCount", "expireAt"]
   }
 
+  global_secondary_index {
+    name               = "StripeCustomerIndex"
+    hash_key           = "stripeCustomerId"
+    projection_type    = "INCLUDE"
+    non_key_attributes = ["plan", "subscriptionStatus", "stripeSubscriptionId"]
+  }
+
   tags = {
     Environment = var.environment
     Name        = local.quotas_table_name
+  }
+}
+
+# Stripe webhook idempotency ledger
+resource "aws_dynamodb_table" "billing_events" {
+  name         = local.billing_events_table_name
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "eventId"
+
+  attribute {
+    name = "eventId"
+    type = "S"
+  }
+
+  ttl {
+    attribute_name = "expireAt"
+    enabled        = true
+  }
+
+  tags = {
+    Environment = var.environment
+    Name        = local.billing_events_table_name
+  }
+}
+
+# Durable OpenAI categorization response cache.
+resource "aws_dynamodb_table" "categorization_cache" {
+  name         = local.categorization_cache_table_name
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "cacheKey"
+
+  attribute {
+    name = "cacheKey"
+    type = "S"
+  }
+
+  ttl {
+    attribute_name = "expireAt"
+    enabled        = true
+  }
+
+  tags = {
+    Environment = var.environment
+    Name        = local.categorization_cache_table_name
   }
 }

@@ -16,6 +16,13 @@ class Config(BaseSettings):
     appsync_graphql_endpoint: str = Field(
         ..., description="AppSync GraphQL endpoint for smart scans"
     )
+    billing_events_table_name: str = Field(
+        default="", description="DynamoDB table name for Stripe webhook idempotency"
+    )
+    categorization_cache_table_name: str = Field(
+        default="",
+        description="DynamoDB table name for durable categorization response caching",
+    )
     clerk_secret_key: SecretStr = Field(
         ..., description="Clerk secret key for network-based token verification"
     )
@@ -25,9 +32,6 @@ class Config(BaseSettings):
     )
     clerk_webhook_signing_secret: SecretStr = Field(
         ..., description="Clerk webhook signing secret for secure webhook handling"
-    )
-    cloudfront_domain_name: str = Field(
-        ..., description="CloudFront domain name for assets"
     )
     events_bus_name: str = Field(..., description="EventBridge event bus name")
     expenses_table_name: str = Field(
@@ -51,6 +55,21 @@ class Config(BaseSettings):
     )
     smartscans_table_name: str = Field(
         ..., description="DynamoDB table name for smart scans"
+    )
+    stripe_cancel_url: str = Field(
+        default="", description="Stripe Checkout cancellation redirect URL"
+    )
+    stripe_price_id_monthly: str = Field(
+        default="", description="Stripe monthly price ID for premium subscriptions"
+    )
+    stripe_secret_key: SecretStr = Field(
+        default="", description="Stripe secret key for billing operations"
+    )
+    stripe_success_url: str = Field(
+        default="", description="Stripe Checkout success redirect URL"
+    )
+    stripe_webhook_secret: SecretStr = Field(
+        default="", description="Stripe webhook signing secret"
     )
 
 

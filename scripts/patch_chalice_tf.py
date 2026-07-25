@@ -55,6 +55,30 @@ def patch_chalice_terraform():
 
     # Get the resource section (create if missing)
     resources = terraform_config.setdefault("resource", {})
+    locals_block = terraform_config.get("locals", {})
+    swagger = locals_block.get("chalice_api_swagger")
+    if isinstance(swagger, str):
+        locals_block["chalice_api_swagger"] = swagger.replace(
+            "${var.frontend_app_url},${var.frontend_dev_app_url}",
+            "${var.frontend_app_url}",
+        )
+
+    lambda_functions = resources.get("aws_lambda_function", {})
+    stripe_environment = {
+        "BILLING_EVENTS_TABLE_NAME": "${aws_dynamodb_table.billing_events.name}",
+        "CATEGORIZATION_CACHE_TABLE_NAME": "${aws_dynamodb_table.categorization_cache.name}",
+        "STRIPE_CANCEL_URL": "${var.stripe_cancel_url}",
+        "STRIPE_PRICE_ID_MONTHLY": "${var.stripe_price_id_monthly}",
+        "STRIPE_SECRET_KEY": "${var.stripe_secret_key}",
+        "STRIPE_SUCCESS_URL": "${var.stripe_success_url}",
+        "STRIPE_WEBHOOK_SECRET": "${var.stripe_webhook_secret}",
+    }
+    for function_config in lambda_functions.values():
+        variables = function_config.setdefault("environment", {}).setdefault(
+            "variables", {}
+        )
+        variables.pop("CLOUDFRONT_DOMAIN_NAME", None)
+        variables.update(stripe_environment)
 
     # Remove Chalice's deprecated API Gateway resources
     gateway_resources = ["aws_api_gateway_deployment", "aws_api_gateway_stage"]

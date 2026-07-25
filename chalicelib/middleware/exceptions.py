@@ -3,8 +3,12 @@ import time
 
 from aws_lambda_powertools import Logger
 from botocore.exceptions import ClientError
-from chalice import (BadRequestError, NotFoundError, TooManyRequestsError,
-                     UnprocessableEntityError)
+from chalice import (
+    BadRequestError,
+    NotFoundError,
+    TooManyRequestsError,
+    UnprocessableEntityError,
+)
 
 logger = Logger(child=True)
 
@@ -89,6 +93,19 @@ def handle_errors(event, get_response):
                 extra={"error": error_message},
             )
             raise BadRequestError("Request processing failed")
+        elif any(
+            keyword in error_message
+            for keyword in (
+                "Stripe",
+                "User quota not found",
+                "already have an active Pro",
+            )
+        ):
+            logger.warning(
+                "Billing validation error",
+                extra={"error": error_message},
+            )
+            raise BadRequestError(error_message)
         else:
             logger.warning(
                 "Validation error",

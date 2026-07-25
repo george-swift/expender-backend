@@ -2,3 +2,4 @@ pre-commit
 isort
 black
 diagrams
+pytest
